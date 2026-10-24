@@ -12,20 +12,32 @@
     body { font-family: "Segoe UI", Arial, sans-serif; color: var(--black); background: var(--white); line-height: 1.6; }
     a { color: inherit; }
 
-    header { position: sticky; top: 0; z-index: 10; background: var(--black); color: var(--white); display: flex; justify-content: space-between; align-items: center; padding: 14px 24px; }
+    header { position: sticky; top: 0; z-index: 30; background: var(--black); color: var(--white); display: flex; justify-content: space-between; align-items: center; padding: 14px 24px; }
     .logo { font-size: 1.5rem; font-weight: 800; letter-spacing: 4px; }
     nav a { color: var(--white); text-decoration: none; margin-left: 20px; font-size: .95rem; opacity: .85; }
     nav a:hover { opacity: 1; }
 
-    .hero { background: linear-gradient(135deg, #0e0e0e 0%, #2a2a2a 100%); color: var(--white); text-align: center; padding: 110px 20px; }
-    .hero small { letter-spacing: 4px; color: #bbb; }
-    .hero h1 { font-size: clamp(2.2rem, 6vw, 4rem); margin: 12px 0; letter-spacing: 1px; }
-    .hero p { max-width: 560px; margin: 0 auto; color: #ddd; }
-    .btns { margin-top: 28px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
     .btn { display: inline-block; padding: 13px 28px; border-radius: 6px; text-decoration: none; font-weight: 700; }
     .btn-primary { background: var(--white); color: var(--black); }
     .btn-wa { background: #25d366; color: #fff; }
     .btn-outline { border: 2px solid var(--white); color: var(--white); }
+
+    /* ===== Curved image hero ===== */
+    .tgh { position: relative; overflow: hidden; height: 680px; background: var(--black); color: var(--white); container-type: size; }
+    .tgh-band { position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .5s;
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+      mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
+    .tgh-tile { position: absolute; transform-style: preserve-3d; }
+    .tgh-tile { animation-timing-function: linear; }
+    .tgh-strip { position: absolute; top: 0; overflow: hidden; background: #2f2f2f; }
+    .tgh-strip img { position: absolute; top: 0; max-width: none; object-fit: cover; }
+    .tgh-content { position: relative; z-index: 10; height: 100%; display: flex; flex-direction: column; justify-content: space-between; align-items: center; text-align: center; padding: 48px 20px; text-shadow: 0 2px 12px rgba(0,0,0,.6); }
+    .tgh-content small { letter-spacing: 4px; color: #ccc; }
+    .tgh-content h1 { font-size: clamp(2.2rem, 6vw, 4rem); margin: 8px 0 0; letter-spacing: 1px; line-height: 1.15; }
+    .tgh-content p { max-width: 520px; margin: 0 auto 22px; color: #e5e5e5; }
+    @media (prefers-reduced-motion: reduce) { .tgh-tile { animation-play-state: paused !important; } }
+    @media (max-width: 600px) { .tgh { height: 600px; } .tgh-content p { display: none; } nav a { margin-left: 12px; font-size: .85rem; } }
 
     .stats { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; background: var(--grey); padding: 28px 20px; text-align: center; }
     .stats strong { display: block; font-size: 1.6rem; }
@@ -61,13 +73,9 @@
     footer { background: #000; color: #aaa; text-align: center; padding: 24px; font-size: .9rem; }
     footer a { color: #fff; margin: 0 8px; }
 
-    .wa-float { position: fixed; right: 18px; bottom: 18px; background: #25d366; color: #fff; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,.3); z-index: 20; }
-
-    @media (max-width: 600px) {
-      nav a { margin-left: 12px; font-size: .85rem; }
-      .hero { padding: 80px 20px; }
-    }
+    .wa-float { position: fixed; right: 18px; bottom: 18px; background: #25d366; color: #fff; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,.3); z-index: 40; }
   </style>
+  <style id="tgh-style"></style>
 </head>
 <body>
 
@@ -80,13 +88,20 @@
     </nav>
   </header>
 
-  <div class="hero">
-    <small>EST. 2026</small>
-    <h1>Jackets Built to Last</h1>
-    <p>Bold designs, strong stitching and a fit you will want to wear every day.</p>
-    <div class="btns">
-      <a class="btn btn-primary" href="#collection">View Collection</a>
-      <a class="btn btn-wa" href="https://wa.me/918077289716?text=Hi%20Bearfit%2C%20I%20want%20to%20know%20more%20about%20your%20jackets." target="_blank" rel="noopener">Order on WhatsApp</a>
+  <div class="tgh" id="tgh">
+    <div class="tgh-band" id="tgh-band" aria-hidden="true"></div>
+    <div class="tgh-content">
+      <div>
+        <small>EST. 2026</small>
+        <h1>Jackets Built<br>to Last</h1>
+      </div>
+      <div>
+        <p>Bold designs, strong stitching and a fit you will want to wear every day.</p>
+        <div class="btns">
+          <a class="btn btn-primary" href="#collection">View Collection</a>
+          <a class="btn btn-wa" href="https://wa.me/918077289716?text=Hi%20Bearfit%2C%20I%20want%20to%20know%20more%20about%20your%20jackets." target="_blank" rel="noopener">Order on WhatsApp</a>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -103,7 +118,6 @@
 
       <div class="card">
         <div class="img">
-          <!-- Upload your photo as jacket1.jpg in this repository, then it will show here -->
           <img src="jacket1.jpg" alt="Bearfit full sleeve printed men jacket" onerror="this.style.display='none';this.parentNode.append('Add jacket1.jpg')">
         </div>
         <div class="body">
@@ -151,6 +165,166 @@
   </footer>
 
   <a class="wa-float" href="https://wa.me/918077289716" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
+
+  <script>
+  /* ===== Curved image hero (plain JavaScript version) =====
+     EDIT THIS LIST: the photos shown in the curved row.
+     Upload each photo to your repository with exactly this name. */
+  var IMAGES = [
+    "jacket1.jpg",
+    "jacket2.jpg",
+    "jacket3.jpg",
+    "jacket4.jpg",
+    "jacket5.jpg",
+    "jacket6.jpg"
+  ];
+
+  /* Settings (same meaning as the original component) */
+  var OPT = {
+    speed: 4,         // seconds for the row to move one tile
+    tileHeight: 32,   // tile height, % of hero height
+    aspect: 1,        // tile width / height (1 = square, 0.75 = portrait, 1.78 = wide)
+    gap: 6,           // space between tiles, % of tile height
+    axis: 52,         // vertical position of the row, % of hero height
+    curve: 80,        // how strongly the ends bend (5 to 85)
+    fade: 12          // edge fade width, % of hero width
+  };
+
+  (function () {
+    var SLICES = 16, CAMERA = 1.6, MAX_WIDTH = 55;
+    var hero = document.getElementById("tgh");
+    var band = document.getElementById("tgh-band");
+    var styleEl = document.getElementById("tgh-style");
+    if (!hero || !band || !IMAGES.length) return;
+
+    var bend = (Math.min(85, Math.max(5, OPT.curve)) * Math.PI) / 180;
+    var shown = {};
+    var current = null;
+
+    function arc(b) {
+      return (CAMERA - 1 + Math.cos(b)) / (2 * CAMERA * Math.sin(b));
+    }
+
+    function measure(width, height) {
+      var h = Math.min((OPT.tileHeight / 100) * height, ((MAX_WIDTH / 100) * width) / OPT.aspect);
+      var radius = width * arc(bend);
+      if (!(h > 0) || !(radius > 0)) return { columns: 2, sweep: 0, unit: 0, limit: 0 };
+      var deg = function (r) { return (r * 180) / Math.PI; };
+      var unit = deg(h / radius);
+      var pitch = (OPT.aspect + OPT.gap / 100) * unit;
+      var limit = deg(bend) + (OPT.aspect * unit) / 2;
+      var columns = Math.min(60, Math.max(2, Math.ceil((2 * limit) / pitch)));
+      var round = function (n) { return +n.toFixed(4); };
+      var sweep = round((columns * pitch) / 2);
+      return { columns: columns, sweep: sweep, unit: round(unit), limit: round(Math.min(sweep, limit)) };
+    }
+
+    function imgFor(n) {
+      return IMAGES[((n % IMAGES.length) + IMAGES.length) % IMAGES.length];
+    }
+
+    function setImage(tile, n) {
+      var src = imgFor(n);
+      var imgs = tile.querySelectorAll("img");
+      for (var i = 0; i < imgs.length; i++) {
+        if (imgs[i].getAttribute("src") !== src) {
+          imgs[i].style.visibility = "visible";
+          imgs[i].setAttribute("src", src);
+        }
+      }
+    }
+
+    function build(layout) {
+      var columns = layout.columns, sweep = layout.sweep, unit = layout.unit, limit = layout.limit;
+      var A = OPT.aspect;
+
+      function u(n) {
+        return "calc(" + (+n.toFixed(4)) + " * min(" + OPT.tileHeight + "cqh, " + (+(MAX_WIDTH / A).toFixed(4)) + "cqw))";
+      }
+      var r = 100 * arc(bend);
+      var radius = (+r.toFixed(3)) + "cqw";
+      function turn(d) {
+        return "translateZ(" + radius + ") rotateY(" + (+d.toFixed(4)) + "deg) translateZ(-" + radius + ")";
+      }
+
+      var hide = +(((sweep - limit) / (2 * sweep || 1)) * 100).toFixed(4);
+      styleEl.textContent =
+        "@keyframes tgh-o{" +
+        "from{transform:" + turn(-sweep) + "}to{transform:" + turn(sweep) + "}" +
+        "0%," + hide + "%," + (100 - hide) + "%,100%{visibility:hidden}" +
+        (hide + 0.001) + "%," + (100 - hide - 0.001) + "%{visibility:visible}}";
+
+      var share = A / SLICES;
+      var duration = columns * OPT.speed;
+
+      band.style.perspective = (+(r * CAMERA).toFixed(3)) + "cqw";
+      band.style.perspectiveOrigin = "50% " + OPT.axis + "%";
+      band.innerHTML = "";
+
+      IMAGES.forEach(function (src) { var p = new Image(); p.src = src; });
+
+      function makeTile(t) {
+        var first = columns - 1 - t;
+        var tile = document.createElement("div");
+        tile.className = "tgh-tile";
+        tile.style.left = "calc(50% - " + u(A / 2) + ")";
+        tile.style.top = "calc(" + OPT.axis + "% - " + u(0.5) + ")";
+        tile.style.width = u(A);
+        tile.style.height = u(1);
+        tile.style.animation = "tgh-o " + duration + "s linear " + (-t * OPT.speed) + "s infinite";
+
+        for (var k = 0; k < SLICES; k++) {
+          var strip = document.createElement("div");
+          strip.className = "tgh-strip";
+          strip.style.left = u((A - share) / 2);
+          strip.style.width = k === SLICES - 1 ? u(share) : "calc(" + u(share) + " + 1px)";
+          strip.style.height = u(1);
+          strip.style.transform = turn((A / 2 - (k + 0.5) * share) * unit);
+          if (k === 0) strip.style.borderRadius = "8px 0 0 8px";
+          if (k === SLICES - 1) strip.style.borderRadius = "0 8px 8px 0";
+
+          var img = document.createElement("img");
+          img.alt = "";
+          img.draggable = false;
+          img.style.left = u(-k * share);
+          img.style.width = u(A);
+          img.style.height = u(1);
+          img.onerror = function () { this.style.visibility = "hidden"; };
+          strip.appendChild(img);
+          tile.appendChild(strip);
+        }
+
+        setImage(tile, shown[t] !== undefined ? shown[t] : first);
+
+        tile.addEventListener("animationiteration", function (e) {
+          var lap = Math.round(e.elapsedTime / duration);
+          shown[t] = lap * columns + first;
+          setImage(tile, shown[t]);
+        });
+        return tile;
+      }
+
+      for (var t = 0; t < columns; t++) band.appendChild(makeTile(t));
+      band.style.opacity = 1;
+    }
+
+    function update() {
+      var rect = hero.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
+      var next = measure(rect.width, rect.height);
+      if (current && current.columns === next.columns && current.sweep === next.sweep && current.unit === next.unit) return;
+      current = next;
+      build(next);
+    }
+
+    if (window.ResizeObserver) {
+      new ResizeObserver(update).observe(hero);
+    } else {
+      window.addEventListener("resize", update);
+    }
+    update();
+  })();
+  </script>
 
 </body>
 </html>
