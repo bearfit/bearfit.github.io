@@ -1,331 +1,231 @@
-<!DOCTYPE html>
+<!doctype html>
+<!-- Bearfit. Layout adapted from the free 8B ONDO template (MIT License): https://8b.com/templates/ondo/ -->
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bearfit | Premium Jackets</title>
-  <meta name="description" content="Bearfit makes quality jackets with a great fit. Shop on Flipkart or order on WhatsApp.">
-  <style>
-    :root { --black:#0e0e0e; --white:#ffffff; --grey:#f3f3f3; --mid:#666; --accent:#e63946; }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { font-family: "Segoe UI", Arial, sans-serif; color: var(--black); background: var(--white); line-height: 1.6; }
-    a { color: inherit; }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bearfit | Jackets Built to Last</title>
+<meta name="description" content="Bearfit makes bold, quality jackets with a great fit. Shop on Flipkart or order on WhatsApp.">
+<meta property="og:title" content="Bearfit | Jackets Built to Last">
+<meta property="og:description" content="Bold, quality jackets with a great fit. Shop on Flipkart or order on WhatsApp.">
+<meta property="og:image" content="https://bearfitstore.com/jacket1.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>
+@font-face{font-family:'Asta Sans';font-style:normal;font-weight:300 600;font-display:swap;src:url(https://fonts.gstatic.com/s/astasans/v3/XoHk2Y74XaWovvhMb0cduPcs.woff2) format('woff2')}
+:root{--c1:#14160f;--c2:#58642f;--c3:#f3eedc;--c4:#0a0b07;--c5:#c8b88a;--f:"Asta Sans",Arial,sans-serif;--s1:clamp(8px,1vw,14px);--s2:clamp(20px,4vw,64px)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--c1);color:var(--c3);-webkit-text-size-adjust:100%}
+body{font-family:var(--f);font-size:clamp(15px,1.05vw,17px);line-height:1.5;overflow-x:clip;background:var(--c1)}
+ul,ol{list-style:none}img{display:block;max-width:100%;height:auto}a{color:inherit}
+:focus-visible{outline:2px solid var(--c3);outline-offset:3px}.light :focus-visible{outline-color:var(--c4)}
+.slide{position:relative;margin:0 var(--s1) var(--s1)}.light{background:var(--c3);color:var(--c4)}.wrap{padding-inline:var(--s2)}
+.t{font-weight:600;line-height:.88;letter-spacing:-.05em;text-transform:uppercase;--heat:1;color:var(--c3);
+ background-image:linear-gradient(100deg,rgba(243,238,220,.3) 0 22%,var(--c3) 44% 84%,var(--c5) 97% 100%);background-size:300% 100%;background-position:calc(var(--heat)*100%) 0;
+ -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.light .t{background:none;color:var(--c4);-webkit-text-fill-color:currentColor}
+.h2{font-size:clamp(40px,6.2vw,96px)}.sm{font-size:13px;opacity:.8}.lead{font-size:clamp(17px,1.45vw,21px);line-height:1.35;max-width:40ch}
+.btn,.btn2{position:relative;display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 24px;border-radius:999px;text-decoration:none;font:500 15px/1 var(--f);cursor:pointer;transition:transform .3s,background .3s,color .3s}
+.btn{background:var(--c3);color:var(--c1);border:1px solid var(--c3)}.btn2{border:1px solid currentColor;color:inherit}
+.btn:hover,.btn2:hover{transform:translateY(-2px)}.btn:hover{background:var(--c5);border-color:var(--c5)}.btn2:hover{background:rgba(243,238,220,.14)}
+.light .btn{background:var(--c4);color:var(--c3);border-color:var(--c4)}
+.link{text-decoration:none;background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;padding-bottom:2px;transition:background-size .5s}.link:hover{background-size:100% 1px}
+.row2{display:flex;flex-wrap:wrap;gap:12px}
+.grid12{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:20px;align-items:end;margin-bottom:clamp(36px,6svh,70px)}
+.grid12 h2{grid-column:1/8}.grid12 p{grid-column:8/-1}
 
-    header { position: sticky; top: 0; z-index: 30; background: var(--black); color: var(--white); display: flex; justify-content: space-between; align-items: center; padding: 14px 24px; }
-    .logo { font-size: 1.5rem; font-weight: 800; letter-spacing: 4px; }
-    nav a { color: var(--white); text-decoration: none; margin-left: 20px; font-size: .95rem; opacity: .85; }
-    nav a:hover { opacity: 1; }
+#nav{position:fixed;inset:0 0 auto;z-index:20;height:60px;display:flex;align-items:center;gap:28px;padding:0 calc(var(--s1) + var(--s2) - 8px);background:var(--c1)}
+#nav .logo{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:21px;letter-spacing:.12em;text-decoration:none}#nav .logo img{border-radius:50%}
+#nav ul{display:flex;gap:26px;margin-left:auto;font-size:14px}#nav .btn{min-height:40px;padding:0 18px;font-size:14px}
+@media(max-width:860px){#nav ul{display:none}#nav .btn{margin-left:auto}#nav{padding:0 calc(var(--s1) + 12px)}}
 
-    .btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-    .btn { display: inline-block; padding: 13px 28px; border-radius: 6px; text-decoration: none; font-weight: 700; }
-    .btn-primary { background: var(--white); color: var(--black); }
-    .btn-wa { background: #25d366; color: #fff; }
-    .btn-outline { border: 2px solid var(--white); color: var(--white); }
+.hero{min-height:100svh;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);align-items:center;gap:var(--s2);padding:calc(60px + 4svh) var(--s2) 5svh;background:var(--c4);overflow:clip}
+.hero h1{font-size:clamp(60px,12.5vw,200px);margin-left:-.04em;margin-block:18px 26px}
+.hero .meta{display:flex;gap:40px;margin-bottom:6px}.hero .meta b{display:block;font-weight:500;font-size:15px}
+.hero p.lead{margin-bottom:28px}
+.hero-photo{aspect-ratio:3/4;width:100%;max-width:470px;max-height:80svh;justify-self:end;overflow:hidden;border-radius:999px 999px 28px 28px;background:#222}
+.hero-photo img{width:100%;height:100%;object-fit:cover}
+@media(max-width:860px){.hero{grid-template-columns:minmax(0,1fr)}.hero-photo{justify-self:center;max-height:62svh;width:auto;height:62svh}.hero .meta{gap:28px}}
 
-    /* ===== Curved image hero ===== */
-    .tgh { position: relative; overflow: hidden; height: 680px; background: var(--black); color: var(--white); container-type: size; }
-    .tgh-band { position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .5s;
-      -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
-      mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
-    .tgh-tile { position: absolute; transform-style: preserve-3d; }
-    .tgh-tile { animation-timing-function: linear; }
-    .tgh-strip { position: absolute; top: 0; overflow: hidden; background: #2f2f2f; }
-    .tgh-strip img { position: absolute; top: 0; max-width: none; object-fit: cover; }
-    .tgh-content { position: relative; z-index: 10; height: 100%; display: flex; flex-direction: column; justify-content: space-between; align-items: center; text-align: center; padding: 48px 20px; text-shadow: 0 2px 12px rgba(0,0,0,.6); }
-    .tgh-content small { letter-spacing: 4px; color: #ccc; }
-    .tgh-content h1 { font-size: clamp(2.2rem, 6vw, 4rem); margin: 8px 0 0; letter-spacing: 1px; line-height: 1.15; }
-    .tgh-content p { max-width: 520px; margin: 0 auto 22px; color: #e5e5e5; }
-    @media (prefers-reduced-motion: reduce) { .tgh-tile { animation-play-state: paused !important; } }
-    @media (max-width: 600px) { .tgh { height: 600px; } .tgh-content p { display: none; } nav a { margin-left: 12px; font-size: .85rem; } }
+#collection,#why,#wall,#faq{padding:clamp(80px,13svh,150px) 0 clamp(60px,9svh,110px)}#collection{background:var(--c4)}
+.prod{display:grid;grid-template-columns:clamp(96px,11vw,170px) minmax(0,1fr) auto;align-items:center;column-gap:clamp(16px,2.4vw,36px);padding:clamp(14px,2svh,22px) var(--s2);border-bottom:1px solid rgba(243,238,220,.22)}
+.prods{border-top:1px solid rgba(243,238,220,.22)}
+.face{aspect-ratio:1;border-radius:50%;overflow:hidden;padding:6px;border:1px solid rgba(243,238,220,.6)}.face img{width:100%;height:100%;object-fit:cover;object-position:50% 25%;border-radius:50%}
+.prod h3{font-size:clamp(34px,6vw,96px);white-space:nowrap}.prod .sm{margin-top:10px}
+.prod .row2{justify-content:flex-end}
+@media(max-width:860px){.grid12{grid-template-columns:minmax(0,1fr);row-gap:16px}.grid12 h2,.grid12 p{grid-column:1}
+ .prod{grid-template-columns:76px minmax(0,1fr);row-gap:12px}.prod .face{padding:4px}.prod .row2{grid-column:1/-1;justify-content:flex-start}.prod h3{white-space:normal;font-size:clamp(34px,11vw,60px)}}
 
-    .stats { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; background: var(--grey); padding: 28px 20px; text-align: center; }
-    .stats strong { display: block; font-size: 1.6rem; }
-    .stats span { color: var(--mid); font-size: .9rem; }
+#why{background:var(--c2)}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2vw,28px)}
+.card{position:relative;padding:28px 26px 32px;border:1px solid rgba(243,238,220,.4);background:rgba(10,11,7,.28);min-height:280px;display:grid;align-content:space-between;gap:30px}
+.card::before{content:"";position:absolute;top:18px;right:4px;width:30px;height:1px;background:rgba(243,238,220,.8)}.card::after{content:"";position:absolute;top:4px;right:18px;width:1px;height:30px;background:rgba(243,238,220,.8)}
+.card .num{font-size:clamp(46px,5vw,72px);font-weight:500;letter-spacing:-.04em;line-height:1}.card h3{font-size:clamp(21px,2vw,28px);font-weight:500;letter-spacing:-.02em;margin-bottom:8px}
+@media(max-width:860px){.cards{grid-template-columns:minmax(0,1fr)}.card{min-height:0}}
 
-    section { padding: 70px 24px; max-width: 1050px; margin: auto; text-align: center; }
-    section h2 { font-size: 2rem; margin-bottom: 8px; }
-    .sub { color: var(--mid); margin-bottom: 36px; }
+#wall{background:var(--c4)}
+.wallgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2vw,28px);align-items:start}
+.wallgrid li{overflow:hidden;aspect-ratio:3/4;background:#222}.wallgrid li:nth-child(3n+2){border-radius:999px 999px 0 0;margin-top:clamp(30px,8svh,90px)}
+.wallgrid img{width:100%;height:100%;object-fit:cover}
+@media(max-width:860px){.wallgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.wallgrid li:nth-child(3n+2){margin-top:0;border-radius:0}.wallgrid li:nth-child(2n){margin-top:40px}}
 
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; justify-content: center; }
-    .card { border: 1px solid #e3e3e3; border-radius: 10px; overflow: hidden; background: #fff; text-align: left; }
-    .card .img { height: 280px; background: var(--grey); display: flex; align-items: center; justify-content: center; color: var(--mid); font-size: .9rem; }
-    .card .img img { width: 100%; height: 100%; object-fit: cover; }
-    .card .body { padding: 16px; }
-    .card h3 { font-size: 1.1rem; margin-bottom: 4px; }
-    .card p { color: var(--mid); font-size: .9rem; margin-bottom: 14px; }
-    .card .btn { display: block; text-align: center; margin-top: 8px; padding: 11px; }
-    .btn-dark { background: var(--black); color: #fff; }
-    .btn-line { border: 2px solid var(--black); color: var(--black); }
+#buy{padding:clamp(80px,13svh,150px) 0}
+.passes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,28px)}
+.pass{display:grid;grid-template-rows:auto 1fr auto;gap:22px;padding:28px 26px 26px;border-radius:22px;color:var(--c3);min-height:380px}
+.pass:nth-child(1){background:var(--c2)}.pass:nth-child(2){background:#3b4526}.pass:nth-child(3){background:var(--c4)}
+.pass h3{font-size:clamp(36px,4vw,60px);margin-top:14px}.pass .btn{background:var(--c3);color:var(--c1);border-color:var(--c3)}
+.pass .badge{display:inline-flex;padding:6px 12px;border:1px solid currentColor;border-radius:999px;font-size:12px}
+.pass :focus-visible{outline-color:var(--c3)}
+@media(max-width:860px){.passes{grid-template-columns:minmax(0,1fr)}.pass{min-height:0}}
 
-    .features { background: var(--grey); max-width: none; }
-    .features .grid { max-width: 1050px; margin: auto; }
-    .feature { padding: 10px; }
-    .feature .icon { font-size: 2rem; }
-    .feature h3 { margin: 8px 0 4px; }
-    .feature p { color: var(--mid); font-size: .92rem; }
+#faq{background:var(--c1)}.faq{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:20px;row-gap:36px}
+.faq .head{grid-column:1/5;display:grid;gap:20px;align-content:start;justify-items:start}.faq .list{grid-column:6/-1;display:grid;gap:12px}
+details{position:relative;border:1px solid rgba(243,238,220,.24);background:rgba(10,11,7,.32)}
+summary{list-style:none;cursor:pointer;padding:22px 64px 22px 22px;font-size:clamp(19px,1.8vw,26px);font-weight:500;letter-spacing:-.02em}summary::-webkit-details-marker{display:none}
+details::before,details::after{content:"";position:absolute;background:var(--c3);right:26px;top:34px;width:16px;height:1px;transition:rotate .35s}details::after{rotate:90deg}details[open]::after{rotate:0deg}
+details p{padding:0 64px 24px 22px;max-width:60ch}
+@media(max-width:860px){.faq{grid-template-columns:minmax(0,1fr)}.faq .head,.faq .list{grid-column:1}}
 
-    #about p { max-width: 640px; margin: 0 auto; color: #333; }
+#contact{background:var(--c2);padding:clamp(90px,14svh,160px) 0;overflow:clip}
+.rings{position:absolute;left:72%;top:50%;pointer-events:none}.rings span{position:absolute;left:0;top:0;width:var(--d);aspect-ratio:1;margin:calc(var(--d)/-2) 0 0 calc(var(--d)/-2);border-radius:50%;border:1px solid rgba(243,238,220,.4)}
+.rings span:nth-child(1){--d:26vmax}.rings span:nth-child(2){--d:46vmax}.rings span:nth-child(3){--d:66vmax}.rings span:nth-child(4){--d:86vmax}
+#contact .in{position:relative;display:grid;gap:36px}
+#contact .big{justify-self:start;font-size:clamp(28px,4.6vw,70px);font-weight:500;letter-spacing:-.035em;line-height:1.1}
+dl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 20px}dl div{display:grid;gap:8px;align-content:start;padding-top:14px;border-top:1px solid rgba(243,238,220,.45)}
+@media(max-width:860px){dl{grid-template-columns:minmax(0,1fr)}.rings{left:85%;top:30%}}
 
-    #contact { background: var(--black); color: #fff; max-width: none; }
-    #contact .sub { color: #bbb; }
-
-    footer { background: #000; color: #aaa; text-align: center; padding: 24px; font-size: .9rem; }
-    footer a { color: #fff; margin: 0 8px; }
-
-    .wa-float { position: fixed; right: 18px; bottom: 18px; background: #25d366; color: #fff; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,.3); z-index: 40; }
-  </style>
-  <style id="tgh-style"></style>
+footer{background:var(--c4);padding:72px var(--s2) 28px}footer .mark{font-size:min(24vw,calc((100vw - 2*var(--s1) - 2*var(--s2))/3.7))}
+footer .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px 32px;margin-top:40px;padding-top:22px;border-top:1px solid rgba(243,238,220,.25);font-size:13px}
+footer ul{display:flex;flex-wrap:wrap;gap:10px 24px}
+.wa{position:fixed;right:18px;bottom:18px;z-index:30;width:56px;height:56px;border-radius:50%;background:#25d366;color:#fff;display:grid;place-items:center;font-size:26px;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.4)}
+@media(prefers-reduced-motion:no-preference){.hero h1,.hero .meta,.hero .lead,.hero .row2,.hero-photo{animation:rise .9s cubic-bezier(.2,.7,.2,1) backwards}.hero .meta{animation-delay:.1s}.hero .lead{animation-delay:.25s}.hero .row2{animation-delay:.35s}.hero-photo{animation-delay:.2s}}
+@keyframes rise{from{transform:translateY(24px);opacity:0}}
+</style>
 </head>
 <body>
+<header id="nav">
+  <a class="logo" href="#top" aria-label="Bearfit home"><img src="logo.png" alt="" width="38" height="38"><span>BEARFIT</span></a>
+  <nav aria-label="Main"><ul>
+    <li><a class="link" href="#collection">Collection</a></li><li><a class="link" href="#why">Why Bearfit</a></li><li><a class="link" href="#wall">Gallery</a></li><li><a class="link" href="#faq">FAQ</a></li>
+  </ul></nav>
+  <a class="btn" href="#buy">Buy now</a>
+</header>
+<main id="top">
+<section class="hero slide" aria-labelledby="hero-title">
+  <div>
+    <dl class="meta sm" style="display:flex"><div style="border:0;padding:0"><dt>Brand</dt><b>Bearfit</b></div><div style="border:0;padding:0"><dt>Est.</dt><b>2026</b></div><div style="border:0;padding:0"><dt>Shop</dt><b>Flipkart &amp; WhatsApp</b></div></dl>
+    <h1 class="t" id="hero-title">Built<br>to last</h1>
+    <p class="lead">Bold designs, strong stitching and a fit you will want to wear every day. Jackets and vests made by Bearfit.</p>
+    <div class="row2"><a class="btn" href="#collection">See the collection</a><a class="btn2" href="https://wa.me/918077289716?text=Hi%20Bearfit%2C%20I%20want%20to%20know%20more%20about%20your%20jackets." target="_blank" rel="noopener">Order on WhatsApp</a></div>
+  </div>
+  <figure class="hero-photo"><img src="jacket1.jpg" width="900" height="1200" alt="Bearfit black and white racing jacket" fetchpriority="high"></figure>
+</section>
 
-  <header>
-    <div class="logo">BEARFIT</div>
-    <nav>
-      <a href="#collection">Collection</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+<section id="collection" class="slide" aria-labelledby="col-title">
+  <div class="grid12 wrap"><h2 class="t h2" id="col-title" data-heat>The collection</h2><p class="lead" data-rise>Buy on Flipkart, or message us on WhatsApp for any jacket, bulk order or custom design. Prices and stock change, so check Flipkart for today's price.</p></div>
+  <ol class="prods">
+    <li class="prod"><figure class="face"><img src="jacket1.jpg" width="900" height="1200" alt="" loading="lazy"></figure><div><h3 class="t">Racing Jacket</h3><p class="sm">Biker / riding style · Black and white · Sizes M, L, XL · From ₹1,349 on Flipkart</p></div>
+      <div class="row2"><a class="btn" href="https://www.flipkart.com/product/p/itme?pid=JCKHSFGNRNDPBYDW" target="_blank" rel="noopener">Buy on Flipkart</a><a class="btn2" href="https://wa.me/918077289716?text=Hi%20Bearfit%2C%20I%20am%20interested%20in%20the%20Racing%20Jacket." target="_blank" rel="noopener">WhatsApp</a></div></li>
+    <li class="prod"><figure class="face"><img src="jacket8.jpg" width="900" height="1200" alt="" loading="lazy"></figure><div><h3 class="t">Ombre Leather Jacket</h3><p class="sm">Dyed / ombre finish · Brown · Sizes M, L · From ₹789 on Flipkart</p></div>
+      <div class="row2"><a class="btn" href="https://www.flipkart.com/product/p/itme?pid=JCKHS82YDZU8WHY6" target="_blank" rel="noopener">Buy on Flipkart</a><a class="btn2" href="https://wa.me/918077289716?text=Hi%20Bearfit%2C%20I%20am%20interested%20in%20the%20Ombre%20Leather%20Jacket." target="_blank" rel="noopener">WhatsApp</a></div></li>
+    <li class="prod"><figure class="face"><img src="jacket10.jpg" width="900" height="1200" alt="" loading="lazy"></figure><div><h3 class="t">Solid Leather Jacket</h3><p class="sm">Faux leather · Black and brown · Sizes M, L, XL · From ₹1,470 on Flipkart</p></div>
+      <div class="row2"><a class="btn2" href="https://wa.me/918077289716?text=Hi%20Bearfit%2C%20I%20am%20interested%20in%20the%20Solid%20Leather%20Jacket." target="_blank" rel="noopener">Order on WhatsApp</a></div></li>
+      <li class="prod"><figure class="face"><img src="jacket12.jpg" width="720" height="960" alt="" loading="lazy"></figure><div><h3 class="t">Self Design Casual Jacket</h3><p class="sm">Quilted-look casual jacket · Light green, beige, navy · Sizes M, L, XL · From ₹885 on Flipkart</p></div>
+      <div class="row2"><a class="btn2" href="https://wa.me/918077289716?text=Hi%20Bearfit%2C%20I%20am%20interested%20in%20the%20Self%20Design%20Casual%20Jacket." target="_blank" rel="noopener">Order on WhatsApp</a></div></li>
+    <li class="prod"><figure class="face"><img src="jacket13.jpg" width="720" height="960" alt="" loading="lazy"></figure><div><h3 class="t">Printed Casual Jacket</h3><p class="sm">Printed pattern · White, olive, dark blue · Sizes M, L, XL · From ₹853 on Flipkart</p></div>
+      <div class="row2"><a class="btn" href="https://www.flipkart.com/product/p/itme?pid=JCKHPHB6GFFDENSA" target="_blank" rel="noopener">Buy on Flipkart</a><a class="btn2" href="https://wa.me/918077289716?text=Hi%20Bearfit%2C%20I%20am%20interested%20in%20the%20Printed%20Casual%20Jacket." target="_blank" rel="noopener">WhatsApp</a></div></li>
+  </ol>
+</section>
 
-  <div class="tgh" id="tgh">
-    <div class="tgh-band" id="tgh-band" aria-hidden="true"></div>
-    <div class="tgh-content">
-      <div>
-        <small>EST. 2026</small>
-        <h1>Jackets Built<br>to Last</h1>
-      </div>
-      <div>
-        <p>Bold designs, strong stitching and a fit you will want to wear every day.</p>
-        <div class="btns">
-          <a class="btn btn-primary" href="#collection">View Collection</a>
-          <a class="btn btn-wa" href="https://wa.me/918077289716?text=Hi%20Bearfit%2C%20I%20want%20to%20know%20more%20about%20your%20jackets." target="_blank" rel="noopener">Order on WhatsApp</a>
-        </div>
-      </div>
+<section id="why" class="slide" aria-labelledby="why-title">
+  <div class="grid12 wrap"><h2 class="t h2" id="why-title" data-heat>Why Bearfit</h2><p class="lead" data-rise>Made by a team with real clothing manufacturing experience, and over 1500 orders delivered.</p></div>
+  <ol class="cards wrap" data-rise>
+    <li class="card"><span class="num">01</span><div><h3>Strong stitching</h3><p>Built in a proper manufacturing setup, made for daily wear.</p></div></li>
+    <li class="card"><span class="num">02</span><div><h3>A great fit</h3><p>Cut for comfort and a sharp look, in every size.</p></div></li>
+    <li class="card"><span class="num">03</span><div><h3>Bold design</h3><p>Racing-inspired prints and clean, simple pieces that stand out.</p></div></li>
+  </ol>
+</section>
+
+<section id="wall" class="slide" aria-labelledby="wall-title">
+  <div class="grid12 wrap"><h2 class="t h2" id="wall-title" data-heat>The look</h2><p class="lead" data-rise>Follow <a class="link" href="https://www.instagram.com/thebearfit/" target="_blank" rel="noopener">@thebearfit</a> on Instagram to see new designs first.</p></div>
+  <ul class="wallgrid wrap">
+    <li><img src="jacket2.jpg" width="900" height="1200" alt="Close-up of the Bearfit racing jacket patch and collar" loading="lazy"></li>
+    <li><img src="jacket8.jpg" width="900" height="1200" alt="Model wearing the Bearfit ombre leather jacket in brown" loading="lazy"></li>
+    <li><img src="jacket3.jpg" width="900" height="1200" alt="Model wearing the Bearfit sand quilted vest" loading="lazy"></li>
+    <li><img src="jacket10.jpg" width="900" height="1200" alt="Bearfit solid black leather jacket" loading="lazy"></li>
+    <li><img src="jacket4.jpg" width="900" height="1200" alt="Model wearing the Bearfit black quilted vest" loading="lazy"></li>
+    <li><img src="jacket1.jpg" width="900" height="1200" alt="Bearfit black and white racing jacket" loading="lazy"></li>
+      <li><img src="jacket12.jpg" width="720" height="960" alt="Model wearing the Bearfit self design casual jacket" loading="lazy"></li>
+    <li><img src="jacket13.jpg" width="720" height="960" alt="Model wearing the Bearfit printed casual jacket" loading="lazy"></li>
+  </ul>
+</section>
+
+<section id="buy" class="slide light" aria-labelledby="buy-title">
+  <div class="grid12 wrap"><h2 class="t h2" id="buy-title" data-rise>Get yours</h2><p class="lead" data-rise>Three easy ways to order or ask a question.</p></div>
+  <ol class="passes wrap">
+    <li class="pass"><div><span class="badge">Online store</span><h3 class="t">Flipkart</h3></div><p>Find every Bearfit jacket on Flipkart, with Flipkart's delivery and return rules.</p><a class="btn" href="https://www.flipkart.com/search?q=bearfit+jacket" target="_blank" rel="noopener">See Bearfit on Flipkart</a></li>
+    <li class="pass"><div><span class="badge">Direct</span><h3 class="t">WhatsApp</h3></div><p>Ask about sizes, colours, bulk orders or custom designs. We reply here.</p><a class="btn" href="https://wa.me/918077289716" target="_blank" rel="noopener">Chat on WhatsApp</a></li>
+    <li class="pass"><div><span class="badge">New designs</span><h3 class="t">Instagram</h3></div><p>See new drops and behind the scenes first at @thebearfit.</p><a class="btn" href="https://www.instagram.com/thebearfit/" target="_blank" rel="noopener">Follow @thebearfit</a></li>
+  </ol>
+</section>
+
+<section id="faq" class="slide" aria-labelledby="faq-title">
+  <div class="faq wrap">
+    <div class="head"><h2 class="t h2" id="faq-title" data-heat>Questions</h2><p>Still unsure? Message us on WhatsApp.</p><a class="link" href="https://wa.me/918077289716" target="_blank" rel="noopener">+91 80772 89716</a></div>
+    <div class="list" data-rise>
+      <details><summary>How do I order?</summary><p>Buy on Flipkart, or message us on WhatsApp with the jacket name and your size.</p></details>
+      <details><summary>How do I find my size?</summary><p>Check the size chart on the Flipkart listing, or send us your height and weight on WhatsApp and we will help. Sizes and stock change, so check the listing for what is available now.</p></details>
+      <details><summary>Do you take bulk or custom orders?</summary><p>Yes. Message us on WhatsApp with what you need and the quantity.</p></details>
+      <details><summary>What about returns and delivery?</summary><p>Flipkart orders follow Flipkart's delivery and return policy. For WhatsApp orders, we confirm delivery time and terms with you before you pay.</p></details>
     </div>
   </div>
+</section>
 
-  <div class="stats">
-    <div><strong>1500+</strong><span>Orders delivered</span></div>
-    <div><strong>100%</strong><span>Made by our own team</span></div>
-    <div><strong>Flipkart</strong><span>Easy online ordering</span></div>
+<section id="contact" class="slide" aria-labelledby="contact-title">
+  <div class="rings" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+  <div class="in wrap">
+    <h2 class="t h2" id="contact-title" data-heat>Say hello</h2>
+    <a class="big link" href="https://wa.me/918077289716" target="_blank" rel="noopener">+91 80772 89716</a>
+    <dl>
+      <div><dt class="sm">WhatsApp</dt><dd>Orders, sizes and questions</dd></div>
+      <div><dt class="sm">Instagram</dt><dd><a class="link" href="https://www.instagram.com/thebearfit/" target="_blank" rel="noopener">@thebearfit</a></dd></div>
+      <div><dt class="sm">Website</dt><dd>bearfitstore.com</dd></div>
+    </dl>
   </div>
+</section>
+</main>
+<footer class="slide">
+  <img src="logo.png" alt="Bearfit logo" width="84" height="84" style="border-radius:50%;margin-bottom:24px">
+  <p class="mark t" data-heat>Bearfit</p>
+  <div class="row"><ul><li><a class="link" href="#collection">Collection</a></li><li><a class="link" href="#buy">Buy</a></li><li><a class="link" href="#faq">FAQ</a></li><li><a class="link" href="https://www.instagram.com/thebearfit/" target="_blank" rel="noopener">Instagram</a></li></ul><small>© 2026 Bearfit. All rights reserved.</small></div>
+</footer>
+<a class="wa" href="https://wa.me/918077289716" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
 
-  <section id="collection">
-    <h2>Our Collection</h2>
-    <p class="sub">Tap a jacket to buy it on Flipkart, or message us on WhatsApp.</p>
-    <div class="grid">
-
-      <div class="card">
-        <div class="img">
-          <img src="jacket1.jpg" alt="Bearfit full sleeve printed men jacket" onerror="this.style.display='none';this.parentNode.append('Add jacket1.jpg')">
-        </div>
-        <div class="body">
-          <h3>Bearfit Full Sleeve Printed Jacket</h3>
-          <p>Racing-style printed jacket for men.</p>
-          <a class="btn btn-dark" href="https://www.flipkart.com/bearfit-full-sleeve-printed-men-jacket/p/itmaf28db10caf3c?pid=JCKHSFGNW4RCGWVC" target="_blank" rel="noopener">Buy on Flipkart</a>
-          <a class="btn btn-line" href="https://wa.me/918077289716?text=Hi%20Bearfit%2C%20I%20am%20interested%20in%20the%20Full%20Sleeve%20Printed%20Jacket." target="_blank" rel="noopener">Ask on WhatsApp</a>
-        </div>
-      </div>
-
-      <!-- To add another jacket, copy the whole <div class="card"> ... </div> block above and paste it here. -->
-
-    </div>
-  </section>
-
-  <section class="features">
-    <div class="grid">
-      <div class="feature"><div class="icon">🧵</div><h3>Strong Stitching</h3><p>Made in a proper manufacturing setup, built for daily wear.</p></div>
-      <div class="feature"><div class="icon">🎯</div><h3>Great Fit</h3><p>Cut for comfort and a sharp look.</p></div>
-      <div class="feature"><div class="icon">🏁</div><h3>Bold Design</h3><p>Racing-inspired prints that stand out.</p></div>
-    </div>
-  </section>
-
-  <section id="about">
-    <h2>About Bearfit</h2>
-    <p>Bearfit is a jacket brand started in 2026 with one goal: quality jackets with bold style at honest prices. Our jackets are made by a team with real clothing manufacturing experience, and over 1500 customers have already ordered from us. You can follow us on Instagram to see new designs first.</p>
-  </section>
-
-  <section id="contact">
-    <h2>Order or Enquire</h2>
-    <p class="sub">Questions, bulk orders or custom designs? Message us.</p>
-    <div class="btns">
-      <a class="btn btn-wa" href="https://wa.me/918077289716" target="_blank" rel="noopener">WhatsApp +91 80772 89716</a>
-      <a class="btn btn-outline" href="https://www.instagram.com/thebearfit/" target="_blank" rel="noopener">Instagram @thebearfit</a>
-    </div>
-  </section>
-
-  <footer>
-    <p>
-      <a href="https://www.instagram.com/thebearfit/" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://wa.me/918077289716" target="_blank" rel="noopener">WhatsApp</a>
-      <a href="https://www.flipkart.com/bearfit-full-sleeve-printed-men-jacket/p/itmaf28db10caf3c?pid=JCKHSFGNW4RCGWVC" target="_blank" rel="noopener">Flipkart</a>
-    </p>
-    <p style="margin-top:10px">© 2026 Bearfit. All rights reserved.</p>
-  </footer>
-
-  <a class="wa-float" href="https://wa.me/918077289716" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
-
-  <script>
-  /* ===== Curved image hero (plain JavaScript version) =====
-     EDIT THIS LIST: the photos shown in the curved row.
-     Upload each photo to your repository with exactly this name. */
-  var IMAGES = [
-    "jacket1.jpg",
-    "jacket2.jpg",
-    "jacket3.jpg",
-    "jacket4.jpg",
-    "jacket5.jpg",
-    "jacket6.jpg",
-    "jacket7.jpg"
-  ];
-
-  /* Settings (same meaning as the original component) */
-  var OPT = {
-    speed: 4,         // seconds for the row to move one tile
-    tileHeight: 40,   // tile height, % of hero height
-    aspect: 0.75,     // tile width / height (1 = square, 0.75 = portrait, 1.78 = wide)
-    gap: 6,           // space between tiles, % of tile height
-    axis: 52,         // vertical position of the row, % of hero height
-    curve: 80,        // how strongly the ends bend (5 to 85)
-    fade: 12          // edge fade width, % of hero width
-  };
-
-  (function () {
-    var SLICES = 16, CAMERA = 1.6, MAX_WIDTH = 55;
-    var hero = document.getElementById("tgh");
-    var band = document.getElementById("tgh-band");
-    var styleEl = document.getElementById("tgh-style");
-    if (!hero || !band || !IMAGES.length) return;
-
-    var bend = (Math.min(85, Math.max(5, OPT.curve)) * Math.PI) / 180;
-    var shown = {};
-    var current = null;
-
-    function arc(b) {
-      return (CAMERA - 1 + Math.cos(b)) / (2 * CAMERA * Math.sin(b));
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.27/dist/lenis.min.js"></script>
+<script>
+if (window.gsap && window.ScrollTrigger) {
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.matchMedia().add('(prefers-reduced-motion: no-preference)', () => {
+    if (window.Lenis) {
+      const lenis = new Lenis({ lerp: .11, anchors: { offset: -60 } });
+      lenis.on('scroll', ScrollTrigger.update);
+      const tick = t => lenis.raf(t * 1000);
+      gsap.ticker.add(tick); gsap.ticker.lagSmoothing(0);
     }
-
-    function measure(width, height) {
-      var h = Math.min((OPT.tileHeight / 100) * height, ((MAX_WIDTH / 100) * width) / OPT.aspect);
-      var radius = width * arc(bend);
-      if (!(h > 0) || !(radius > 0)) return { columns: 2, sweep: 0, unit: 0, limit: 0 };
-      var deg = function (r) { return (r * 180) / Math.PI; };
-      var unit = deg(h / radius);
-      var pitch = (OPT.aspect + OPT.gap / 100) * unit;
-      var limit = deg(bend) + (OPT.aspect * unit) / 2;
-      var columns = Math.min(60, Math.max(2, Math.ceil((2 * limit) / pitch)));
-      var round = function (n) { return +n.toFixed(4); };
-      var sweep = round((columns * pitch) / 2);
-      return { columns: columns, sweep: sweep, unit: round(unit), limit: round(Math.min(sweep, limit)) };
-    }
-
-    function imgFor(n) {
-      return IMAGES[((n % IMAGES.length) + IMAGES.length) % IMAGES.length];
-    }
-
-    function setImage(tile, n) {
-      var src = imgFor(n);
-      var imgs = tile.querySelectorAll("img");
-      for (var i = 0; i < imgs.length; i++) {
-        if (imgs[i].getAttribute("src") !== src) {
-          imgs[i].style.visibility = "visible";
-          imgs[i].setAttribute("src", src);
-        }
-      }
-    }
-
-    function build(layout) {
-      var columns = layout.columns, sweep = layout.sweep, unit = layout.unit, limit = layout.limit;
-      var A = OPT.aspect;
-
-      function u(n) {
-        return "calc(" + (+n.toFixed(4)) + " * min(" + OPT.tileHeight + "cqh, " + (+(MAX_WIDTH / A).toFixed(4)) + "cqw))";
-      }
-      var r = 100 * arc(bend);
-      var radius = (+r.toFixed(3)) + "cqw";
-      function turn(d) {
-        return "translateZ(" + radius + ") rotateY(" + (+d.toFixed(4)) + "deg) translateZ(-" + radius + ")";
-      }
-
-      var hide = +(((sweep - limit) / (2 * sweep || 1)) * 100).toFixed(4);
-      styleEl.textContent =
-        "@keyframes tgh-o{" +
-        "from{transform:" + turn(-sweep) + "}to{transform:" + turn(sweep) + "}" +
-        "0%," + hide + "%," + (100 - hide) + "%,100%{visibility:hidden}" +
-        (hide + 0.001) + "%," + (100 - hide - 0.001) + "%{visibility:visible}}";
-
-      var share = A / SLICES;
-      var duration = columns * OPT.speed;
-
-      band.style.perspective = (+(r * CAMERA).toFixed(3)) + "cqw";
-      band.style.perspectiveOrigin = "50% " + OPT.axis + "%";
-      band.innerHTML = "";
-
-      IMAGES.forEach(function (src) { var p = new Image(); p.src = src; });
-
-      function makeTile(t) {
-        var first = columns - 1 - t;
-        var tile = document.createElement("div");
-        tile.className = "tgh-tile";
-        tile.style.left = "calc(50% - " + u(A / 2) + ")";
-        tile.style.top = "calc(" + OPT.axis + "% - " + u(0.5) + ")";
-        tile.style.width = u(A);
-        tile.style.height = u(1);
-        tile.style.animation = "tgh-o " + duration + "s linear " + (-t * OPT.speed) + "s infinite";
-
-        for (var k = 0; k < SLICES; k++) {
-          var strip = document.createElement("div");
-          strip.className = "tgh-strip";
-          strip.style.left = u((A - share) / 2);
-          strip.style.width = k === SLICES - 1 ? u(share) : "calc(" + u(share) + " + 1px)";
-          strip.style.height = u(1);
-          strip.style.transform = turn((A / 2 - (k + 0.5) * share) * unit);
-          if (k === 0) strip.style.borderRadius = "8px 0 0 8px";
-          if (k === SLICES - 1) strip.style.borderRadius = "0 8px 8px 0";
-
-          var img = document.createElement("img");
-          img.alt = "";
-          img.draggable = false;
-          img.style.left = u(-k * share);
-          img.style.width = u(A);
-          img.style.height = u(1);
-          img.onerror = function () { this.style.visibility = "hidden"; };
-          strip.appendChild(img);
-          tile.appendChild(strip);
-        }
-
-        setImage(tile, shown[t] !== undefined ? shown[t] : first);
-
-        tile.addEventListener("animationiteration", function (e) {
-          var lap = Math.round(e.elapsedTime / duration);
-          shown[t] = lap * columns + first;
-          setImage(tile, shown[t]);
-        });
-        return tile;
-      }
-
-      for (var t = 0; t < columns; t++) band.appendChild(makeTile(t));
-      band.style.opacity = 1;
-    }
-
-    function update() {
-      var rect = hero.getBoundingClientRect();
-      if (!rect.width || !rect.height) return;
-      var next = measure(rect.width, rect.height);
-      if (current && current.columns === next.columns && current.sweep === next.sweep && current.unit === next.unit) return;
-      current = next;
-      build(next);
-    }
-
-    if (window.ResizeObserver) {
-      new ResizeObserver(update).observe(hero);
-    } else {
-      window.addEventListener("resize", update);
-    }
-    update();
-  })();
-  </script>
-
+    document.querySelectorAll('[data-heat]').forEach(el => gsap.fromTo(el, { '--heat': 0 }, { '--heat': 1, ease: 'none', scrollTrigger: { trigger: el, start: 'top 95%', end: 'top 55%', scrub: .4 } }));
+    document.querySelectorAll('[data-rise]').forEach(el => gsap.from(el.children.length ? el.children : el, { y: 34, opacity: 0, duration: .8, ease: 'power3.out', stagger: .09, scrollTrigger: { trigger: el, start: 'top 88%', once: true } }));
+    gsap.to('.hero-photo img', { scale: 1.12, yPercent: 5, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: .5 } });
+    document.querySelectorAll('.prod').forEach(row => {
+      const face = row.querySelector('.face');
+      gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: { trigger: row, start: 'top bottom', end: 'bottom top', scrub: .4 } })
+        .fromTo(face, { scale: .5 }, { scale: 1, duration: .5, ease: 'power2.out' }, 0)
+        .to(face, { scale: .5, duration: .5, ease: 'power2.in' }, .5);
+    });
+  });
+}
+</script>
 </body>
 </html>
