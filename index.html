@@ -101,13 +101,14 @@ footer ul{display:flex;flex-wrap:wrap;gap:10px 24px}
 .wa{position:fixed;right:18px;bottom:18px;z-index:30;width:56px;height:56px;border-radius:50%;background:#25d366;color:#fff;display:grid;place-items:center;font-size:26px;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.4)}
 @media(prefers-reduced-motion:no-preference){.hero h1,.hero .meta,.hero .lead,.hero .row2,.hero-photo{animation:rise .9s cubic-bezier(.2,.7,.2,1) backwards}.hero .meta{animation-delay:.1s}.hero .lead{animation-delay:.25s}.hero .row2{animation-delay:.35s}.hero-photo{animation-delay:.2s}}
 @keyframes rise{from{transform:translateY(24px);opacity:0}}
+.cmedia{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s1);padding:var(--s2) var(--s2) 0}.cmedia.cvid{grid-template-columns:repeat(2,1fr);padding-bottom:var(--s2)}.cmedia figure{margin:0;position:relative;border-radius:18px;overflow:hidden;background:#000}.cmedia img,.cmedia video{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}.cmedia figcaption{position:absolute;left:12px;bottom:12px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--c3);background:rgba(10,11,7,.6);padding:6px 10px;border-radius:99px}
 </style>
 </head>
 <body>
 <header id="nav">
   <a class="logo" href="#top" aria-label="Bearfit home"><img src="logo.png" alt="" width="38" height="38"><span>BEARFIT</span></a>
   <nav aria-label="Main"><ul>
-    <li><a class="link" href="#collection">Collection</a></li><li><a class="link" href="#why">Why Bearfit</a></li><li><a class="link" href="#wall">Gallery</a></li><li><a class="link" href="#faq">FAQ</a></li>
+    <li><a class="link" href="#collection">Collection</a></li><li><a class="link" href="#croc">Croc</a></li><li><a class="link" href="#why">Why Bearfit</a></li><li><a class="link" href="#wall">Gallery</a></li><li><a class="link" href="#faq">FAQ</a></li>
   </ul></nav>
   <a class="btn" href="#buy">Buy now</a>
 </header>
@@ -120,6 +121,16 @@ footer ul{display:flex;flex-wrap:wrap;gap:10px 24px}
     <div class="row2"><a class="btn" href="#collection">See the collection</a><a class="btn2" href="https://wa.me/918077289716?text=Hi%20Bearfit%2C%20I%20want%20to%20know%20more%20about%20your%20jackets." target="_blank" rel="noopener">Order on WhatsApp</a></div>
   </div>
   <figure class="hero-photo"><img src="jacket1.jpg" width="900" height="1200" alt="Bearfit black and white racing jacket" fetchpriority="high"></figure>
+</section>
+
+<section id="croc" class="slide" aria-labelledby="croc-title">
+  <div class="grid12 wrap"><h2 class="t h2" id="croc-title" data-heat>Croc collection</h2><p class="lead" data-rise>Our new crocodile jacket: glossy croc-embossed finish, collar and front zip. Three colours, sizes M, L and XL.</p></div>
+  <ol class="prods">
+    <li class="prod"><figure class="face"><img src="croc/img/brown-front.jpg" width="800" height="996" alt="" loading="lazy"></figure><div><h3 class="t">Crocodile Jacket</h3><p class="sm">Croc-embossed finish · Black, brown and grey · Sizes M, L, XL · From ₹1,899 on Flipkart</p></div>
+      <div class="row2"><a class="btn" href="https://www.flipkart.com/product/p/itme?pid=JCKHSSFC9VBBZBF" target="_blank" rel="noopener">Buy on Flipkart</a><a class="btn2" href="https://wa.me/918077289716?text=Hi%20Bearfit%2C%20I%20am%20interested%20in%20the%20Crocodile%20Jacket." target="_blank" rel="noopener">WhatsApp</a></div></li>
+  </ol>
+  <div class="cmedia"><figure><img src="croc/img/black-front.jpg" width="800" height="996" alt="Bearfit crocodile jacket in black" loading="lazy"><figcaption>Black</figcaption></figure><figure><img src="croc/img/brown-front.jpg" width="800" height="996" alt="Bearfit crocodile jacket in brown" loading="lazy"><figcaption>Brown</figcaption></figure><figure><img src="croc/img/grey-front.jpg" width="800" height="996" alt="Bearfit crocodile jacket in grey" loading="lazy"><figcaption>Grey</figcaption></figure></div>
+  <div class="cmedia cvid"><figure><video src="croc/video/croc-black.mp4" poster="croc/video/croc-black.jpg" muted loop autoplay playsinline preload="metadata" aria-label="Bearfit crocodile jacket in black, close-up"></video><figcaption>Black close-up</figcaption></figure><figure><video src="croc/video/croc-brown.mp4" poster="croc/video/croc-brown.jpg" muted loop autoplay playsinline preload="metadata" aria-label="Bearfit crocodile jacket in brown, close-up"></video><figcaption>Brown close-up</figcaption></figure></div>
 </section>
 
 <section id="collection" class="slide" aria-labelledby="col-title">
@@ -198,7 +209,7 @@ footer ul{display:flex;flex-wrap:wrap;gap:10px 24px}
 <footer class="slide">
   <img src="logo.png" alt="Bearfit logo" width="84" height="84" style="border-radius:50%;margin-bottom:24px">
   <p class="mark t" data-heat>Bearfit</p>
-  <div class="row"><ul><li><a class="link" href="#collection">Collection</a></li><li><a class="link" href="#buy">Buy</a></li><li><a class="link" href="#faq">FAQ</a></li><li><a class="link" href="https://www.instagram.com/thebearfit/" target="_blank" rel="noopener">Instagram</a></li></ul><small>© 2026 Bearfit. All rights reserved.</small></div>
+  <div class="row"><ul><li><a class="link" href="#collection">Collection</a></li><li><a class="link" href="#croc">Croc collection</a></li><li><a class="link" href="#buy">Buy</a></li><li><a class="link" href="#faq">FAQ</a></li><li><a class="link" href="https://www.instagram.com/thebearfit/" target="_blank" rel="noopener">Instagram</a></li></ul><small>© 2026 Bearfit. All rights reserved.</small></div>
 </footer>
 <a class="wa" href="https://wa.me/918077289716" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
 
