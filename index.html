@@ -3,7 +3,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#14160f">
 <title>Bearfit | Jackets Built to Last</title>
 <meta name="description" content="Bearfit makes bold, quality jackets with a great fit. Shop on Flipkart or order on WhatsApp.">
 <meta property="og:title" content="Bearfit | Jackets Built to Last">
@@ -102,6 +103,61 @@ footer ul{display:flex;flex-wrap:wrap;gap:10px 24px}
 @media(prefers-reduced-motion:no-preference){.hero h1,.hero .meta,.hero .lead,.hero .row2,.hero-photo{animation:rise .9s cubic-bezier(.2,.7,.2,1) backwards}.hero .meta{animation-delay:.1s}.hero .lead{animation-delay:.25s}.hero .row2{animation-delay:.35s}.hero-photo{animation-delay:.2s}}
 @keyframes rise{from{transform:translateY(24px);opacity:0}}
 .cmedia{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s1);padding:var(--s2) var(--s2) 0}.cmedia.cvid{grid-template-columns:repeat(2,1fr);padding-bottom:var(--s2)}.cmedia figure{margin:0;position:relative;border-radius:18px;overflow:hidden;background:#000}.cmedia img,.cmedia video{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}.cmedia figcaption{position:absolute;left:12px;bottom:12px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--c3);background:rgba(10,11,7,.6);padding:6px 10px;border-radius:99px}
+
+/* ---- mobile polish ---- */
+html{scroll-padding-top:68px}a,button,summary{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.menu{display:none}
+#drawer{position:fixed;inset:60px 0 0;z-index:19;background:var(--c1);padding:12px calc(var(--s1) + 20px) calc(24px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:6px;overflow-y:auto;transform:translateY(-8px);opacity:0;visibility:hidden;transition:opacity .25s,transform .25s,visibility .25s}
+#drawer.open{opacity:1;transform:none;visibility:visible}
+#drawer a.dl{display:flex;align-items:center;justify-content:space-between;min-height:60px;border-bottom:1px solid rgba(243,238,220,.18);font-size:28px;font-weight:500;letter-spacing:-.03em;text-decoration:none}
+#drawer .btn{margin-top:22px;width:100%}
+@media(min-width:861px){#drawer{display:none}}
+@media(max-width:860px){
+ #nav{gap:10px;height:60px;padding:0 calc(var(--s1) + 14px)}#nav .logo{font-size:18px;gap:8px}#nav .logo img{width:32px;height:32px}
+ #nav .btn{min-height:40px;padding:0 16px;font-size:14px;margin-left:auto}
+ .menu{display:grid;place-content:center;gap:6px;width:44px;height:44px;margin-right:-8px;background:none;border:0;color:var(--c3);cursor:pointer}
+ .menu span{display:block;width:22px;height:2px;background:currentColor;border-radius:2px;transition:transform .3s}
+ .menu[aria-expanded=true] span:first-child{transform:translateY(4px) rotate(45deg)}.menu[aria-expanded=true] span:last-child{transform:translateY(-4px) rotate(-45deg)}
+ .hero{min-height:auto;padding:calc(60px + 28px) 20px 36px;gap:28px}
+ .hero h1{font-size:clamp(64px,22vw,110px)}.hero .meta{flex-wrap:wrap;gap:14px 28px}
+ .hero-photo{width:100%;max-width:none;height:auto;aspect-ratio:4/5;max-height:none}
+ .hero .row2 .btn,.hero .row2 .btn2{flex:1 1 100%}
+ .sm{font-size:14px;opacity:.85}
+ #collection,#why,#wall,#faq{padding-top:72px;padding-bottom:56px}
+ .prod{grid-template-columns:92px minmax(0,1fr);padding:20px var(--s2)}
+ .prod .row2 .btn,.prod .row2 .btn2{flex:1 1 140px}
+ .prod h3{font-size:clamp(30px,9.5vw,52px);line-height:.95}
+ .cmedia,.cmedia.cvid{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:20px;padding:20px 20px 4px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+ .cmedia::-webkit-scrollbar{display:none}.cmedia figure{flex:0 0 74%;scroll-snap-align:start}
+ .cmedia.cvid{padding-bottom:28px}
+ .card{padding:24px 22px 26px}.pass{padding:24px 22px 22px}
+ summary{padding:20px 56px 20px 18px}details::before,details::after{right:20px;top:30px}details p{padding:0 18px 22px}
+ #contact .big{font-size:clamp(24px,7.4vw,40px);word-break:break-word}
+ footer{padding:56px 20px calc(24px + env(safe-area-inset-bottom))}footer ul a{display:inline-block;padding:8px 0}footer .row{font-size:14px}
+ .wa{right:16px;bottom:calc(16px + env(safe-area-inset-bottom));width:54px;height:54px}
+}
+@media(hover:none){.btn:hover,.btn2:hover{transform:none}}
+
+/* ---- cool upgrades ---- */
+#prog{position:fixed;top:0;left:0;right:0;height:3px;background:var(--c5);transform-origin:0 50%;transform:scaleX(0);z-index:40;pointer-events:none}
+.marq{overflow:hidden;white-space:nowrap;border-block:1px solid rgba(243,238,220,.25);padding:16px 0;margin:0 var(--s1) var(--s1);background:var(--c4)}
+.marq-in{display:inline-flex;animation:mq 30s linear infinite}.marq span{padding-right:30px;font-size:13px;letter-spacing:.24em;text-transform:uppercase;font-weight:500}.marq span:nth-child(even){color:var(--c5)}
+@keyframes mq{to{transform:translateX(-50%)}}
+.cv{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,4vw,64px);align-items:center;padding:var(--s2)}
+.cv-stage{position:relative;aspect-ratio:4/5;width:100%;max-width:520px;justify-self:end;border-radius:28px;overflow:hidden;background:#1b1d14;touch-action:pan-y}
+.cv-stage img{width:100%;height:100%;object-fit:cover;transition:opacity .25s,transform .6s}.cv-stage img.sw{opacity:0;transform:scale(1.03)}
+.cv-shine{position:absolute;inset:0;pointer-events:none;background:linear-gradient(110deg,transparent 36%,rgba(255,255,255,.2) 50%,transparent 64%);transform:translateX(-120%);animation:shine 5.5s ease-in-out infinite}
+@keyframes shine{0%,55%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+.cv-new{position:absolute;top:16px;left:16px;z-index:2;background:var(--c5);color:var(--c4);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;padding:7px 14px;border-radius:999px}
+.cv-name{font-size:clamp(48px,7vw,104px);font-weight:600;letter-spacing:-.05em;line-height:.9;text-transform:uppercase;margin-bottom:18px}
+.cv-sw,.cv-views{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px}
+.cv button{font:500 14px/1 var(--f);color:var(--c3);cursor:pointer}
+.cv-sw button{width:48px;height:48px;border-radius:50%;border:2px solid rgba(243,238,220,.3);padding:4px;background:none}.cv-sw button i{display:block;width:100%;height:100%;border-radius:50%;border:1px solid rgba(0,0,0,.5)}
+.cv-sw button[aria-pressed=true]{border-color:var(--c5)}
+.cv-views button{min-height:44px;padding:0 20px;border-radius:999px;border:1px solid rgba(243,238,220,.4);background:none}.cv-views button[aria-pressed=true]{background:var(--c3);color:var(--c1);border-color:var(--c3)}
+.cv-hint{font-size:13px;opacity:.7}
+@media(max-width:860px){.cv{grid-template-columns:minmax(0,1fr);padding:20px}.cv-stage{justify-self:center;max-width:none;border-radius:24px}.cv-name{font-size:clamp(44px,15vw,72px)}}
+@media(prefers-reduced-motion:reduce){.marq-in,.cv-shine{animation:none}}
 </style>
 </head>
 <body>
@@ -111,7 +167,10 @@ footer ul{display:flex;flex-wrap:wrap;gap:10px 24px}
     <li><a class="link" href="#collection">Collection</a></li><li><a class="link" href="#croc">Croc</a></li><li><a class="link" href="#why">Why Bearfit</a></li><li><a class="link" href="#wall">Gallery</a></li><li><a class="link" href="#faq">FAQ</a></li>
   </ul></nav>
   <a class="btn" href="#buy">Buy now</a>
+  <button class="menu" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span></button>
 </header>
+<div id="drawer" aria-label="Menu"><a class="dl" href="#collection">Collection</a><a class="dl" href="#croc">Croc collection</a><a class="dl" href="#why">Why Bearfit</a><a class="dl" href="#wall">Gallery</a><a class="dl" href="#faq">FAQ</a><a class="dl" href="#contact">Contact</a><a class="btn" href="https://wa.me/918077289716?text=Hi%20Bearfit%2C%20I%20want%20to%20know%20more%20about%20your%20jackets." target="_blank" rel="noopener">Order on WhatsApp</a></div>
+<div id="prog" aria-hidden="true"></div>
 <main id="top">
 <section class="hero slide" aria-labelledby="hero-title">
   <div>
@@ -123,13 +182,16 @@ footer ul{display:flex;flex-wrap:wrap;gap:10px 24px}
   <figure class="hero-photo"><img src="jacket1.jpg" width="900" height="1200" alt="Bearfit black and white racing jacket" fetchpriority="high"></figure>
 </section>
 
+<div class="marq" aria-hidden="true"><div class="marq-in"><span>Built to last</span><span>✦</span><span>New: Croc collection</span><span>✦</span><span>Flipkart &amp; WhatsApp</span><span>✦</span><span>Bearfit 2026</span><span>✦</span><span>Built to last</span><span>✦</span><span>New: Croc collection</span><span>✦</span><span>Flipkart &amp; WhatsApp</span><span>✦</span><span>Bearfit 2026</span><span>✦</span></div></div>
+
 <section id="croc" class="slide" aria-labelledby="croc-title">
   <div class="grid12 wrap"><h2 class="t h2" id="croc-title" data-heat>Croc collection</h2><p class="lead" data-rise>Our new crocodile jacket: glossy croc-embossed finish, collar and front zip. Three colours, sizes M, L and XL.</p></div>
   <ol class="prods">
     <li class="prod"><figure class="face"><img src="brown-front.jpg" width="800" height="996" alt="" loading="lazy"></figure><div><h3 class="t">Crocodile Jacket</h3><p class="sm">Croc-embossed finish · Black, brown and grey · Sizes M, L, XL · From ₹1,899 on Flipkart</p></div>
       <div class="row2"><a class="btn" href="https://www.flipkart.com/product/p/itme?pid=JCKHSSFC9VBBZBF" target="_blank" rel="noopener">Buy on Flipkart</a><a class="btn2" href="https://wa.me/918077289716?text=Hi%20Bearfit%2C%20I%20am%20interested%20in%20the%20Crocodile%20Jacket." target="_blank" rel="noopener">WhatsApp</a></div></li>
   </ol>
-  <div class="cmedia"><figure><img src="black-front.jpg" width="800" height="996" alt="Bearfit crocodile jacket in black" loading="lazy"><figcaption>Black</figcaption></figure><figure><img src="brown-front.jpg" width="800" height="996" alt="Bearfit crocodile jacket in brown" loading="lazy"><figcaption>Brown</figcaption></figure><figure><img src="grey-front.jpg" width="800" height="996" alt="Bearfit crocodile jacket in grey" loading="lazy"><figcaption>Grey</figcaption></figure></div>
+  <div class="cv"><div class="cv-stage" id="cvStage"><span class="cv-new">New</span><img id="cvImg" src="black-front.jpg" width="800" height="996" alt="Bearfit crocodile jacket, black, front"><i class="cv-shine"></i></div>
+    <div><p class="cv-name" id="cvName">Black</p><div class="cv-sw" role="group" aria-label="Colour"><button type="button" data-c="black" aria-pressed="true" aria-label="Black"><i style="background:#1c1c1c"></i></button><button type="button" data-c="brown" aria-pressed="false" aria-label="Brown"><i style="background:#6b3a24"></i></button><button type="button" data-c="grey" aria-pressed="false" aria-label="Grey"><i style="background:#7a7d70"></i></button></div><div class="cv-views" role="group" aria-label="View"><button type="button" data-v="front" aria-pressed="true">Front</button><button type="button" data-v="side" aria-pressed="false">Side</button><button type="button" data-v="back" aria-pressed="false">Back</button><button type="button" data-v="detail" aria-pressed="false">Detail</button></div><p class="cv-hint">Tap a colour or swipe the photo.</p></div></div>
   <div class="cmedia cvid"><figure><video src="croc-black.mp4" poster="croc-black.jpg" muted loop autoplay playsinline preload="metadata" aria-label="Bearfit crocodile jacket in black, close-up"></video><figcaption>Black close-up</figcaption></figure><figure><video src="croc-brown.mp4" poster="croc-brown.jpg" muted loop autoplay playsinline preload="metadata" aria-label="Bearfit crocodile jacket in brown, close-up"></video><figcaption>Brown close-up</figcaption></figure></div>
 </section>
 
@@ -237,6 +299,32 @@ if (window.gsap && window.ScrollTrigger) {
     });
   });
 }
+</script>
+<script>
+(function(){var b=document.querySelector('.menu'),d=document.getElementById('drawer');if(!b||!d)return;
+function set(o){d.classList.toggle('open',o);b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Close menu':'Open menu');document.documentElement.style.overflow=o?'hidden':''}
+b.addEventListener('click',function(){set(!d.classList.contains('open'))});
+d.addEventListener('click',function(e){if(e.target.closest('a'))set(false)});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false)});
+addEventListener('resize',function(){if(innerWidth>860)set(false)});
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;if(e.isIntersecting){var p=v.play();if(p&&p.catch)p.catch(function(){})}else v.pause()})},{threshold:.35});
+document.querySelectorAll('.cmedia video').forEach(function(v){v.removeAttribute('autoplay');v.preload='none';io.observe(v)})}})();
+</script>
+<script>
+(function(){var bar=document.getElementById('prog'),t=0;
+function up(){t=0;var h=document.documentElement.scrollHeight-innerHeight;bar.style.transform='scaleX('+(h>0?Math.min(1,scrollY/h):0)+')'}
+addEventListener('scroll',function(){if(!t)t=requestAnimationFrame(up)},{passive:true});up();
+var img=document.getElementById('cvImg'),st=document.getElementById('cvStage'),nm=document.getElementById('cvName');if(!img)return;
+var V=['front','side','back','detail'],c='black',v='front';
+function show(){var src=c+'-'+v+'.jpg';img.classList.add('sw');var n=new Image();n.onload=function(){img.src=src;img.alt='Bearfit crocodile jacket, '+c+', '+v;img.classList.remove('sw')};n.onerror=function(){img.classList.remove('sw')};n.src=src;nm.textContent=c;
+document.querySelectorAll('.cv-sw button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.c===c)});
+document.querySelectorAll('.cv-views button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.v===v)})}
+document.querySelectorAll('.cv-sw button').forEach(function(b){b.onclick=function(){c=b.dataset.c;show()}});
+document.querySelectorAll('.cv-views button').forEach(function(b){b.onclick=function(){v=b.dataset.v;show()}});
+var x0=null;st.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+st.addEventListener('touchend',function(e){if(x0===null)return;var d=e.changedTouches[0].clientX-x0;x0=null;if(Math.abs(d)>40){var i=V.indexOf(v)+(d<0?1:-1);v=V[(i+4)%4];show()}});
+['black','brown','grey'].forEach(function(k){V.forEach(function(w){if(k+w!=='blackfront'){var p=new Image();p.src=k+'-'+w+'.jpg'}})});
+})();
 </script>
 </body>
 </html>
